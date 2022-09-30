@@ -1,14 +1,14 @@
 # How to make this application working
 ## Documentation purpose
-The goal of this document is explaining various informations about this project. It may contains : 
-- Basics informations like "how launching the application" or "how to configure it".
+The goal of this document is explaining various information about this project. It may contains : 
+- Basics information like "how launching the application" or "how to configure it".
 - Explanations about some concepts for learning purposes.
 - Indications about tricky issues and how to solve them.
 
 **What this documentation won't contains :** explanations about the code. All needed indications (including clarification given in teaching perspective) will be included in code itself as commentaries.
 
-## Application informations
-#### Angular requierments
+## Application information
+#### Angular requirements
 Angular requires :
 - An active LTS or maintenance LTS version of Node.js. Please watch <a href="https://github.com/nodejs/release#release-schedule">Available on Node.js's github</a>.
 - Npm package manager (normally installed with node.js by default).
@@ -43,3 +43,15 @@ This command :
 - Watches the source files.
 - Rebuilds the application as you make changes.
 - Opens a browser to <a href="http://localhost:4200">http://localhost:4200</a> because of *--open* argument.
+
+#### Creating a component
+Even if we may do this manually, the best way to create a component is with the Angular CLI. For it :
+- In command prompt, goes into the directory containing the application.
+- Run  <span style="color: green;">*ng generate component &lt;component-name&gt;*</span>, where *&lt;component-name&gt;* is the name of the new component.
+By default, this command creates the following :
+- A directory named after the component.
+- A component file, *&lt;component-name&gt;.component.ts*.
+- A template file, *&lt;component-name&gt;.component.html*.
+- A CSS file, *&lt;component-name&gt;.component.css*.
+- A testing specification file, *&lt;component-name&gt;.component.spec.ts*.
+This behavior may be modified. See <a href="https://angular.io/cli/generate#component-command">component-command doc</a>.
