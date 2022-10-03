@@ -32,7 +32,9 @@ import { Component } from '@angular/core';
    * apply through application-wide.
    */
 })
-
+/*
+ * Here we "export" the class. We should always export the component class so we can import it elsewhere, like in the AppModule.
+ */
 export class AppComponent {
   // Fields of a component may be used in corresponding template. Watch inside "app.component.html" for more details.
   title = 'Tour of Heroes !';

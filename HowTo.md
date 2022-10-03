@@ -54,4 +54,5 @@ By default, this command creates the following :
 - A template file, *&lt;component-name&gt;.component.html*.
 - A CSS file, *&lt;component-name&gt;.component.css*.
 - A testing specification file, *&lt;component-name&gt;.component.spec.ts*.
+It also add newly created module to *app.module.ts* file.
 This behavior may be modified. See <a href="https://angular.io/cli/generate#component-command">component-command doc</a>.

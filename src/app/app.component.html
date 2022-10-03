@@ -9,5 +9,10 @@
   the value of title (defined in "app.component.ts" class) inside the HTML.
 -->
 <h1>{{title}}</h1>
+<!--
+  This will display the whole template of the "heroes.component.ts". 
+  This may works because we export class of this component, and because it was added in "app.module.ts" file.
+-->
+<app-heroes></app-heroes>
 
 <router-outlet></router-outlet>
