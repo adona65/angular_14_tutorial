@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -13,10 +14,19 @@ import { Hero } from '../hero';
  */
 export class HeroesComponent implements OnInit {
 
-  hero: Hero = {
+  heroes = HEROES;
+
+  fakeHero: Hero = {
     id: 1,
-    name: 'Windstorm'
+    name: 'Fake hero'
   };
+
+  /* 
+   * selectedHero isn't defined since there is no selected hero in template when the application starts.
+   * ==> In typescript, "?:" means a property is optional. This property can either have a value based on the type defined (here Hero) 
+   *     or its value can be undefined.
+   */
+  selectedHero?: Hero;
 
   /*
    * "Just" the constructor of the class. 
@@ -33,5 +43,9 @@ export class HeroesComponent implements OnInit {
    *  Please note that Angular calls ngOnInit() only once.
    */
   ngOnInit(): void {
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
   }
 }

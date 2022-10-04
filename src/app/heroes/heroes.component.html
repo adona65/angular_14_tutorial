@@ -6,8 +6,8 @@
     to format strings, currency amounts, dates, and other display data. Angular ships with several built-in pipes and we can create 
     our own.
 -->
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
+<h2>{{fakeHero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{fakeHero.id}}</div>
 <div>
     <label for="name">Hero name: </label>
     <!--
@@ -20,5 +20,43 @@
         Beware : although ngModel is a valid Angular directive, it isn't available by default. We may use it because we added FormsModule to imports in
         "app.module.ts" (ngModel belongs to FormsModule).
     -->
-    <input id="name" [(ngModel)]="hero.name" placeholder="name">
+    <input id="name" [(ngModel)]="fakeHero.name" placeholder="name">
+</div>
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <!-- 
+        *ngFor is Angular's repeater directive. It repeats the host element for each element in a list. Here :
+        - "<li>" is the host element. 
+        - "heroes" is heroes list from the HeroesComponent class.
+        - "hero" holds the current hero object for each iteration through the list.
+    -->
+    <li *ngFor="let hero of heroes">
+        <!--
+            "(click)="onSelect(hero)" is an example of Angular's event binding syntax. The parentheses around click tell Angular to listen 
+            for the <button> element's click event. When the user clicks in the <button>, Angular executes the onSelect(hero) expression from
+            HeroesComponent class.
+
+            "[class.some-css-class]="some-condition" is Angular's class binding. It can add and remove a CSS class conditionally. Adding
+            Below "[class.selected]="hero === selectedHero" into button tag indicate Angular to adds the selected CSS class to the element when
+            the current row's hero is the same as the selectedHero. If the user then click on another hero, the hero from previous button become
+            different of selectedHero, and Angular removes the class from it.
+        -->
+        <button type="button" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+            <span class="badge">{{hero.id}}</span>
+            <span class="name">{{hero.name}}</span>
+        </button>
+    </li>
+</ul>
+
+<!--
+    *ngIf directive tells Angular to render the section only when the selectedHero is defined (so after it has been selected by clicking on a hero).
+-->
+<div *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div>id: {{selectedHero.id}}</div>
+    <div>
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    </div>
 </div>
