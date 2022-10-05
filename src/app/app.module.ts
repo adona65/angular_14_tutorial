@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 /*
  * In this file are declared all modules (or components) of our application. It may be :
@@ -14,7 +15,8 @@ import { HeroesComponent } from './heroes/heroes.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroDetailComponent
   ],
   imports: [
     BrowserModule,

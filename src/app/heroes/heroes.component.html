@@ -49,14 +49,11 @@
     </li>
 </ul>
 
-<!--
-    *ngIf directive tells Angular to render the section only when the selectedHero is defined (so after it has been selected by clicking on a hero).
+<!-- 
+    Here he parent, HeroesComponent, controls the child, HeroDetailComponent by sending it a new hero to display whenever
+    the user selects a hero from the list. We bind the HeroesComponent.selectedHero to the HeroDetail.hero property.
+
+    [hero]="selectedHero" is an Angular property binding. It's a one-way data binding from the selectedHero property of the HeroesComponent to the 
+    hero property of the target element, which maps to the hero property of the HeroDetailComponent.
 -->
-<div *ngIf="selectedHero">
-    <h2>{{selectedHero.name | uppercase}} Details</h2>
-    <div>id: {{selectedHero.id}}</div>
-    <div>
-        <label for="hero-name">Hero name: </label>
-        <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
-    </div>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
