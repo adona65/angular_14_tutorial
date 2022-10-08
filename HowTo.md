@@ -56,3 +56,13 @@ By default, this command creates the following :
 - A testing specification file, *&lt;component-name&gt;.component.spec.ts*.
 It also add newly created module to *app.module.ts* file.
 This behavior may be modified. See <a href="https://angular.io/cli/generate#component-command">component-command doc</a>.
+
+#### Creating a service
+Even if we may do this manually, the best way to create a component is with the Angular CLI. For it :
+- In command prompt, goes into the directory containing the application.
+- Run  <span style="color: green;">*ng generate service &lt;service-name&gt;*</span>, where *&lt;service-name&gt;* is the name of the new component.
+By default, this command creates the following :
+- A service file, *&lt;service-name&gt;.service.ts*.
+- A testing specification file, *&lt;service-name&gt;.service.spec.ts*
+It also provide the service at the root level by default.
+More details at <a href="https://angular.io/cli/generate#service">generate service doc</a>.

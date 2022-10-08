@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
+import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -14,7 +15,7 @@ import { HEROES } from '../mock-heroes';
  */
 export class HeroesComponent implements OnInit {
 
-  heroes = HEROES;
+  heroes: Hero[] = [];
 
   fakeHero: Hero = {
     id: 1,
@@ -29,9 +30,11 @@ export class HeroesComponent implements OnInit {
   selectedHero?: Hero;
 
   /*
-   * "Just" the constructor of the class. 
+   * Constructor of the class. Here, the heroService parameter simultaneously defines a private heroService property and identifies it as a 
+   * HeroService injection site. When Angular creates a HeroesComponent, the Dependency Injection system sets the heroService parameter to the 
+   * singleton instance of HeroService.
    */
-  constructor() { }
+  constructor(private heroService: HeroService, private messageService: MessageService) { }
 
   /*
    * The goal of ngOnInit() method is to perform the following initialization tasks :
@@ -43,9 +46,24 @@ export class HeroesComponent implements OnInit {
    *  Please note that Angular calls ngOnInit() only once.
    */
   ngOnInit(): void {
+    this.getHeroes();
+  }
+
+  /*
+   * Retrieve the data to display from the service that provide it.
+   */
+  getHeroes(): void {
+    /*
+     * Observable.subscribe() retrieve data in an asynchronous way. It waits for the Observable to emit the array of heroes, which could happen now or 
+     * several minutes from now. As it's asynchronous, it won't frize the browser. The subscribe() method passes the emitted data to the callback, which 
+     * sets the component's heroes property.
+     */
+    this.heroService.getHeroes()
+                    .subscribe(heroes => this.heroes = heroes);
   }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 }
