@@ -66,3 +66,11 @@ By default, this command creates the following :
 - A testing specification file, *&lt;service-name&gt;.service.spec.ts*
 It also provide the service at the root level by default.
 More details at <a href="https://angular.io/cli/generate#service">generate service doc</a>.
+
+#### Creating rooting module
+Even if we may do this manually, the best way to create a component is with the Angular CLI. For it :
+- In command prompt, goes into the directory containing the application.
+- Run  <span style="color: green;">*ng generate module app-routing --flat --module=app*</span> where :
+    ¤ *--flat*	puts the file in src/app instead of its own directory
+    ¤ *--module=app* tells ng generate to register it in the imports array of the AppModule
+More details at <a href="https://angular.io/cli/generate#module">generate module doc</a>.

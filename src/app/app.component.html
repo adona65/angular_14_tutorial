@@ -12,8 +12,32 @@
 <!--
   This will display the whole template of the "heroes.component.ts". 
   This may works because we export class of this component, and because it was added in "app.module.ts" file.
+
+  Watch below to know why it is commented.
 -->
-<app-heroes></app-heroes>
+<!--<app-heroes></app-heroes>-->
+
+<nav>
+  <!--
+    The routerLink is the selector for the RouterLink directive that turns user clicks into router navigations. It's one 
+    of the public directives in the RouterModule.
+
+    It will redirect application to the module routed to this path (watch inside "app-routing.module.ts").
+  -->
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+
+<!--
+  <app-heroes> is commented because it's no longer needed (we keep it commented here for tutorial purposes). The application 
+  only displays the HeroesComponent when the user navigates to it. For this, the <router-outlet> tells the router where to display 
+  routed views.
+
+  The RouterOutlet is one of the router directives that became available to the AppComponent because AppModule imports AppRoutingModule 
+  which exported RouterModule. 
+-->
+<router-outlet></router-outlet>
+
 <app-messages></app-messages>
 
-<router-outlet></router-outlet>
+
