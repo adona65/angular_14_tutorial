@@ -71,6 +71,7 @@ More details at <a href="https://angular.io/cli/generate#service">generate servi
 Even if we may do this manually, the best way to create a component is with the Angular CLI. For it :
 - In command prompt, goes into the directory containing the application.
 - Run  <span style="color: green;">*ng generate module app-routing --flat --module=app*</span> where :
-    ¤ *--flat*	puts the file in src/app instead of its own directory
-    ¤ *--module=app* tells ng generate to register it in the imports array of the AppModule
+<br/>&nbsp;&nbsp;&nbsp;¤ *--flat*	puts the file in src/app instead of its own directory
+<br/>&nbsp;&nbsp;&nbsp;¤ *--module=app* tells ng generate to register it in the imports array of the AppModule
+
 More details at <a href="https://angular.io/cli/generate#module">generate module doc</a>.
