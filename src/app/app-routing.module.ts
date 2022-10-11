@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RoutableHeroDetailComponent } from './routable-hero-detail/routable-hero-detail.component';
 
 /*
  * Routes tell the Router which view to display when a user clicks a link or pastes a URL into the browser address bar.
@@ -18,7 +19,9 @@ const routes: Routes = [
    * When the application starts, the browser's address bar points to the web site's root. That doesn't match any existing route so the router doesn't navigate 
    * anywhere. To fix this, we may used an empty path as bellow, that will make the application navigate to the dashboard automatically.
    */
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, 
+  // The colon ":" character in the path indicates that ":id" is a placeholder for a specific hero id.
+  { path: 'detail/:id', component: RoutableHeroDetailComponent }
 ];
 
 /*

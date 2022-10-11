@@ -8,6 +8,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RoutableHeroDetailComponent } from './routable-hero-detail/routable-hero-detail.component';
 
 /*
  * In this file are declared all modules (or components) of our application. It may be :
@@ -20,7 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    RoutableHeroDetailComponent
   ],
   imports: [
     BrowserModule,
