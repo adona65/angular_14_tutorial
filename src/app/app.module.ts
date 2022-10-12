@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +30,20 @@ import { RoutableHeroDetailComponent } from './routable-hero-detail/routable-her
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // HttpClient is Angular's mechanism for communicating with a remote server over HTTP.
+    HttpClientModule,
+    /*
+     * In-memory Web API intercept HTTP requests, apply them to an in-memory data store, and return simulated responses. It is useful
+     * to simulate server responses.
+     * 
+     * The forRoot() configuration method takes an InMemoryDataService class that primes the in-memory database.
+     * 
+     * IMPORTANT : Remove it when a real server is ready to receive requests.
+     */
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
