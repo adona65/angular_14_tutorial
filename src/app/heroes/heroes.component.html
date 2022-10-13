@@ -27,6 +27,10 @@
 
 <div>
     <label for="new-hero">Hero name: </label>
+    <!--
+        Hashtag "#" is part of Angular's templating system which declares DOM elements as variables. It can declare local variable names which references DOM 
+        objects in a template. Here "heroName" declare "input as a property", which is used in following button when we retrieve "heroName.value".
+    -->
     <input id="new-hero" #heroName />
 
     <!-- (click) passes input value to add() and then clears the input -->
